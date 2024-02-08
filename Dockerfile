@@ -6,7 +6,7 @@ ENV PYTHONUNBUFFERED 1
 WORKDIR ~/opt/instsite
 
 COPY ./requirements.txt .
-
+RUN pip install asgiref
 RUN pip install -r requirements.txt
 
 COPY . .
