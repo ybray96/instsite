@@ -5,6 +5,11 @@ ENV PYTHONUNBUFFERED 1
 
 WORKDIR ~/opt/instsite
 
+RUN python -m venv ~/opt/instsite/venv
+ENV PATH="/opt/venv/bin:$PATH"
+RUN echo "Проверка версии Python:" && python --version
+RUN echo "Проверка версии pip:" && pip --version
+RUN echo "Содержимое requirements.txt:" && cat requirements.txt
 COPY ./requirements.txt .
 RUN pip install -r requirements.txt
 
