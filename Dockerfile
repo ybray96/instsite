@@ -6,6 +6,7 @@ ENV PYTHONUNBUFFERED 1
 WORKDIR ~/opt/instsite
 
 COPY ./requirements.txt .
+python -m pip install --upgrade pip
 RUN pip install asgiref
 RUN pip install -r requirements.txt
 
