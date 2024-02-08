@@ -9,12 +9,12 @@ RUN python -m venv ~/opt/instsite/venv
 ENV PATH="/opt/venv/bin:$PATH"
 RUN echo "Check version Python:" && python --version
 RUN pip install --upgrade pip setuptools
-RUN pip install --upgrade pip && pip install -r requirements.txt --extra-index-url=https://pypi.org/simple/
+
 
 COPY ./requirements.txt .
 RUN echo "Check version pip:" && pip --version
 RUN echo "Content requirements.txt:" && cat requirements.txt
-RUN pip install -r requirements.txt
+RUN pip install --upgrade pip && pip install -r requirements.txt --extra-index-url=https://pypi.org/simple/
 
 COPY . .
 
