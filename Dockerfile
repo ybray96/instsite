@@ -3,10 +3,10 @@ FROM python:3.12
 ENV PYTHONDONTTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-WORKDIR ~/opt/instsite
+WORKDIR ~/instsite
 
 RUN python -m venv ~/opt/instsite/venv
-ENV PATH="/opt/venv/bin:$PATH"
+ENV PATH="/optvenv/bin:$PATH"
 RUN echo "Check version Python:" && python --version
 RUN pip install --upgrade pip setuptools
 
