@@ -5,8 +5,9 @@ ENV PYTHONUNBUFFERED 1
 
 WORKDIR ~/instsite
 
-RUN python -m venv ~/opt/instsite/venv
-ENV PATH="/optvenv/bin:$PATH"
+#RUN python -m venv ~/opt/instsite/venv
+
+#ENV PATH="/optvenv/bin:$PATH"
 RUN echo "Check version Python:" && python --version
 RUN pip install --upgrade pip setuptools
 
