@@ -256,7 +256,9 @@ CORS_ALLOW_CREDENTIALS = True
 CSRF_USE_SESSIONS = False
 CSRF_COOKIE_SECURE = False
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-]
+#CORS_ALLOWED_ORIGINS = [
+ #   "http://localhost:3000",
+#]
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_WHITELIST = ["http://91.147.92.207:7781",]
 
