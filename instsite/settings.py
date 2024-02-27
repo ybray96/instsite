@@ -261,5 +261,5 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 CSRF_TRUSTED_ORIGINS=["https://admin.history-state.kz"] 
-
+CSRF_COOKIE_DOMAIN = ".history-state.kz"
 
