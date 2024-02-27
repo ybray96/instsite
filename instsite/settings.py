@@ -260,5 +260,6 @@ CORS_ALLOWED_ORIGINS = [
     "https://history-state.kz",
 ]
 
+CSRF_TRUSTED_ORIGINS=["https://admin.history-state.kz"] 
 
 
