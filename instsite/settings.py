@@ -257,6 +257,8 @@ CSRF_USE_SESSIONS = False
 CSRF_COOKIE_SECURE = False
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
+    "https://history-state.kz",
 ]
+
+
 
