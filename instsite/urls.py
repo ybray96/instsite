@@ -65,7 +65,9 @@ urlpatterns = [
     path("api/v1/science-library-list/", ScienceLibraryApiView.as_view()),
     path("api/v1/achievements-list/", AchievementsApiView.as_view()),
     path("api/v1/make-appointment-list/", MakeAnAppointmentCreateView.as_view()),
-    path('api/v1/search/', GlobalSearchAPIView.as_view(), name='global-search')
+    path('api/v1/search/', GlobalSearchAPIView.as_view(), name='global-search'),
+    path('api/v1/categories-history/', CategoryHistoryApiView.as_view(), name='categories-history'),
+    path('api/v1/history/', HistoryApiView.as_view(), name='history'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

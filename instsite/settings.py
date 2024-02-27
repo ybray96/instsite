@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-a1y0-^dp1=d!uni#i++!g^=w^zzdgx5jz0$6degnt6-60ri7nt
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*','92.147.92.207','92.147.92.207:8000']
+ALLOWED_HOSTS = [*]
+
 
 # Application definition
 
@@ -255,9 +256,10 @@ CORS_ALLOW_CREDENTIALS = True
 CSRF_USE_SESSIONS = False
 CSRF_COOKIE_SECURE = False
 
-#CORS_ALLOWED_ORIGINS = [
- #   "http://localhost:3000",
-#]
-CORS_ORIGIN_ALLOW_ALL = False
-CORS_ORIGIN_WHITELIST = ["http://91.147.92.207:7781",]
+CORS_ALLOWED_ORIGINS = [
+	'https://admin.history-state.kz',
+]
 
+CSRF_TRUSTED_ORIGINS = [
+	'https://admin.history-state.kz',
+]

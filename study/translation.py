@@ -64,4 +64,7 @@ class AchievementsTranslationOptions(TranslationOptions):
     fields = ('title', 'description')
 
 
+@register(History)
+class HistoryTranslationOptions(TranslationOptions):
+    fields = ('name', 'full_text')
 

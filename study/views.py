@@ -13,6 +13,12 @@ from django.db.models import Q
 from rest_framework.response import Response
 from .models import *
 from .serializers import *
+from rest_framework import generics
+from rest_framework import serializers
+from rest_framework.response import Response
+from django.db.models import Q
+from .models import News, Statistics, Charter, InstituteStructure, Scientists, ScientistsSovet, AppliedResearch, Recomendation, ExpertOpinion, ScienceLibrary, Achievements, MakeAnAppointment, FoundationStudy
+from .serializers import NewsSerializer, StatisticsSerializer, CharterSerializer, InstituteStructureSerializer, ScientistsSerializer, ScientistsSovetSerializer, AppliedResearchSerializer, RecomendationSerializer, ExpertOpinionSerializer, ScienceLibrarySerializer, AchievementsSerializer, MakeAnAppointmentSerializer, FoundationStudySerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -170,13 +176,21 @@ class MakeAnAppointmentCreateView(generics.ListCreateAPIView):
     queryset = MakeAnAppointment.objects.all()
     serializer_class = MakeAnAppointmentSerializer
 
+class HistoryApiView(APIView):
+    permission_classes = [AllowAny]
 
-from rest_framework import generics
-from rest_framework import serializers
-from rest_framework.response import Response
-from django.db.models import Q
-from .models import News, Statistics, Charter, InstituteStructure, Scientists, ScientistsSovet, AppliedResearch, Recomendation, ExpertOpinion, ScienceLibrary, Achievements, MakeAnAppointment, FoundationStudy
-from .serializers import NewsSerializer, StatisticsSerializer, CharterSerializer, InstituteStructureSerializer, ScientistsSerializer, ScientistsSovetSerializer, AppliedResearchSerializer, RecomendationSerializer, ExpertOpinionSerializer, ScienceLibrarySerializer, AchievementsSerializer, MakeAnAppointmentSerializer, FoundationStudySerializer
+    def get(self, request):
+        items = History.objects.all()
+        serializer = HistorySerializer(items, many=True)
+        return Response({"data": serializer.data})
+
+class CategoryHistoryApiView(APIView):
+    permission_classes = [AllowAny]
+
+    def get(self, request):
+        items = CategoryHistory.objects.all()
+        serializer = CategoryHistorySerializer(items, many=True)
+        return Response({"data": serializer.data})
 
 class GlobalSearchAPIView(generics.ListAPIView):
     def get_serializer_class(self):

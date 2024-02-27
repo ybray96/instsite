@@ -181,6 +181,29 @@ class AchievementsAdmin(TranslationAdmin):
     form = AchievementsAdminForm
 
 
+class HistoryAdminForm(forms.ModelForm):
+    full_text_ru = forms.CharField(label='Статья [ru]', widget=CKEditorUploadingWidget())
+    full_text_en = forms.CharField(label='Статья [en]', required=False, widget=CKEditorUploadingWidget())
+    full_text_kk = forms.CharField(label='Статья [kk]', required=False, widget=CKEditorUploadingWidget())
+
+    class Meta:
+        model = History
+        fields = '__all__'
+
+
+class HistoryAdmin(TranslationAdmin):
+    list_display = ('name', 'full_text', 'date')
+    form = HistoryAdminForm
+
+class CategoryHistoryAdminForm(forms.ModelForm):
+    class Meta:
+        model = CategoryHistory
+        fields = '__all__'
+
+
+
+admin.site.register(History, HistoryAdmin)
+admin.site.register(CategoryHistory)
 admin.site.register(Main, MainAdmin)
 admin.site.register(MainSlider, MainSliderAdmin)
 admin.site.register(News, NewsAdmin)

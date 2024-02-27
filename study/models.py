@@ -205,3 +205,25 @@ class FoundationStudy(models.Model):
         verbose_name_plural = "Исследования"
 
 
+class CategoryHistory(models.Model):
+    name = models.CharField("Год", max_length=100)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "Современная история категорий"
+        verbose_name_plural = "Современная история категорий"
+
+class History(models.Model):
+    name = models.CharField("Заголовка", max_length=200)
+    full_text = models.TextField("Статья")
+    date = models.CharField("Дата публикации", max_length=15)
+    image = models.ImageField("Картинка", upload_to="photos/%Y/%m/%d/", default=None)
+    category = models.ForeignKey(CategoryHistory, related_name='History', on_delete=models.CASCADE)
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "Современная история"
+        verbose_name_plural = "Современная история"

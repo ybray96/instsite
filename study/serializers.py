@@ -107,3 +107,16 @@ class MakeAnAppointmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = MakeAnAppointment
         fields = '__all__'
+
+
+class HistorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = History
+        fields = "__all__"
+
+class CategoryHistorySerializer(serializers.ModelSerializer):
+    products = HistorySerializer(many=True, read_only=True)
+
+    class Meta:
+        model = CategoryHistory
+        fields = "__all__"
